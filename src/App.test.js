@@ -44,6 +44,20 @@ test("counter start at 0", () => {
 });
 
 test("clicking on button increments counter display", () => {
+  const wrapper = setup();
+  const button = findByTestAttr(wrapper, 'increment-button');
 
+  button.simulate('click');
+  const count = findByTestAttr(wrapper, 'count').text();
+  expect(count).toBe("1");
 })
 
+test("clicking on the decrement button decrements the counter display", () => {
+   const wrapper = setup();
+   const decrementButton = findByTestAttr(wrapper, 'decrement-button');
+
+   decrementButton.simulate('click');
+   const count = findByTestAttr(wrapper, 'count').text();
+
+   expect(count).toBe("-1");
+});
