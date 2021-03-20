@@ -96,6 +96,6 @@ test("error message element should be hidden if the increment button is clicked"
 
   const errorMessageElement = findByTestAttr(wrapper, 'error-message');
 
-  //expect(errorMessageElement.length).toBe(0); //fails it receives 1
+  expect(errorMessageElement.length).toBe(0); //fails it receives 1
   expect(errorMessageElement.exists()).toBeFalsy(); //even more strange - Expected: undefined, Actual: undefined and the test fail
 });
