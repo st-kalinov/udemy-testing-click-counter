@@ -87,15 +87,14 @@ test("error message element should be visible if decrement button is clicked whe
 
 test("error message element should be hidden if the increment button is clicked", () => {
   const wrapper = setup();
-  const incrementButton = findByTestAttr(wrapper, 'increment-button');
   const decrementButton = findByTestAttr(wrapper, 'decrement-button');
-
   decrementButton.simulate('click');
 
+  const incrementButton = findByTestAttr(wrapper, 'increment-button');
   incrementButton.simulate('click');
 
   const errorMessageElement = findByTestAttr(wrapper, 'error-message');
 
-  expect(errorMessageElement.length).toBe(0); //fails it receives 1
-  expect(errorMessageElement.exists()).toBeFalsy(); //even more strange - Expected: undefined, Actual: undefined and the test fail
+  expect(errorMessageElement.length).toBe(0);
+  expect(errorMessageElement.exists()).toBeFalsy();
 });
